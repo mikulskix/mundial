@@ -8,6 +8,15 @@ from email.mime.multipart import MIMEMultipart
 
 POLAND_TZ = timezone(timedelta(hours=2))  # CEST
 
+# -------------------------------------------------------
+# Lista odbiorców — dodaj kolejne adresy email poniżej:
+RECIPIENTS = [
+    "mikulski.powiadomienia@gmail.com",
+    # "kolega@gmail.com",
+    # "inny@przykład.pl",
+]
+# -------------------------------------------------------
+
 API_KEY = os.environ['FOOTBALL_API_KEY']
 EMAIL = os.environ['EMAIL_ADDRESS']
 APP_PASSWORD = os.environ['EMAIL_APP_PASSWORD']
@@ -60,11 +69,11 @@ body = f"""
 msg = MIMEMultipart('alternative')
 msg['Subject'] = subject
 msg['From'] = EMAIL
-msg['To'] = EMAIL
+msg['To'] = ', '.join(RECIPIENTS)
 msg.attach(MIMEText(body, 'html'))
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(EMAIL, APP_PASSWORD)
-    smtp.send_message(msg)
+    smtp.sendmail(EMAIL, RECIPIENTS, msg.as_string())
 
-print(f"Wysłano: {subject}")
+print(f"Wysłano: {subject} → {RECIPIENTS}")
