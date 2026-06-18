@@ -18,7 +18,8 @@ jobs:
       - run: pip install requests
 
       - name: Wyslij email z wynikami
-        run: python scripts/results_yesterday.py
+        run: python results_yesterday.py
+        working-directory: scripts
         env:
           FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}

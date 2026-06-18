@@ -5,6 +5,7 @@ import smtplib
 from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from team_names import translate
 
 POLAND_TZ = timezone(timedelta(hours=2))  # CEST
 
@@ -43,8 +44,8 @@ rows = []
 for m in sorted(matches, key=lambda x: x['utcDate']):
     utc_time = datetime.fromisoformat(m['utcDate'].replace('Z', '+00:00'))
     local_time = utc_time.astimezone(POLAND_TZ).strftime('%H:%M')
-    home = m['homeTeam']['name']
-    away = m['awayTeam']['name']
+    home = translate(m['homeTeam']['name'])
+    away = translate(m['awayTeam']['name'])
     label = m.get('group') or m.get('stage', '')
     rows.append(
         f"<tr><td style='padding:6px 12px;font-size:13px'><b>{local_time}</b></td>"

@@ -5,6 +5,7 @@ import smtplib
 from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from team_names import translate
 
 POLAND_TZ = timezone(timedelta(hours=2))  # CEST
 
@@ -41,8 +42,8 @@ subject = f"Mundial 2026 — Wyniki z {date_polish}"
 
 rows = []
 for m in sorted(matches, key=lambda x: x['utcDate']):
-    home = m['homeTeam']['name']
-    away = m['awayTeam']['name']
+    home = translate(m['homeTeam']['name'])
+    away = translate(m['awayTeam']['name'])
     score = m['score']['fullTime']
     hg = score.get('home', '?')
     ag = score.get('away', '?')
