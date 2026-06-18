@@ -1,12 +1,12 @@
-name: Mecze na dzis
+name: Poranne podsumowanie
 
 on:
   schedule:
-    - cron: '0 13 * * *'  # 15:00 CEST (UTC+2)
+    - cron: '0 4 * * *'  # 06:00 CEST (UTC+2)
   workflow_dispatch:
 
 jobs:
-  send-matches:
+  send-summary:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,8 +17,8 @@ jobs:
 
       - run: pip install requests
 
-      - name: Wyslij email z meczami
-        run: python matches_today.py
+      - name: Wyslij poranne podsumowanie
+        run: python daily_summary.py
         working-directory: scripts
         env:
           FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
