@@ -47,7 +47,7 @@ for m in sorted(matches, key=lambda x: x['utcDate']):
     away = m['awayTeam']['name']
     label = m.get('group') or m.get('stage', '')
     rows.append(
-        f"<tr><td style='padding:6px 12px;font-size:18px'><b>{local_time}</b></td>"
+        f"<tr><td style='padding:6px 12px;font-size:13px'><b>{local_time}</b></td>"
         f"<td style='padding:6px 12px'>{home} <b>vs</b> {away}</td>"
         f"<td style='padding:6px 12px;color:#888'>{label}</td></tr>"
     )
