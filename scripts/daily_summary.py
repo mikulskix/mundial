@@ -60,7 +60,7 @@ if results:
         ag = score.get('away', '?')
         label = m.get('group') or m.get('stage', '')
         rows.append(
-            f"<tr><td style='padding:6px 12px;font-size:16px;font-weight:bold'>"
+            f"<tr><td style='padding:6px 12px;font-size:14px;font-weight:bold'>"
             f"{home} {hg} — {ag} {away}</td>"
             f"<td style='padding:6px 12px;color:#888'>{label}</td></tr>"
         )
@@ -85,7 +85,7 @@ if upcoming:
         away = translate(m['awayTeam']['name'])
         label = m.get('group') or m.get('stage', '')
         rows.append(
-            f"<tr><td style='padding:6px 12px;font-size:13px'><b>{local_time}</b></td>"
+            f"<tr><td style='padding:6px 12px;font-size:14px'><b>{local_time}</b></td>"
             f"<td style='padding:6px 12px'>{home} <b>vs</b> {away}</td>"
             f"<td style='padding:6px 12px;color:#888'>{label}</td></tr>"
         )
