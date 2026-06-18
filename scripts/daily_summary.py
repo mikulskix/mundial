@@ -60,7 +60,7 @@ if results:
         ag = score.get('away', '?')
         label = m.get('group') or m.get('stage', '')
         rows.append(
-            f"<tr><td style='padding:6px 12px;font-size:14px;font-weight:bold'>"
+            f"<tr><td style='padding:6px 12px;font-size:14px'>"
             f"{home} {hg} — {ag} {away}</td>"
             f"<td style='padding:6px 12px;color:#888'>{label}</td></tr>"
         )
