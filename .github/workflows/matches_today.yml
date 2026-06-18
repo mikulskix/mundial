@@ -1,0 +1,25 @@
+name: Mecze na dzis
+
+on:
+  schedule:
+    - cron: '0 13 * * *'  # 15:00 CEST (UTC+2)
+  workflow_dispatch:
+
+jobs:
+  send-matches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install requests
+
+      - name: Wyslij email z meczami
+        run: python scripts/matches_today.py
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
