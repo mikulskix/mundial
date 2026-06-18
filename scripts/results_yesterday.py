@@ -49,7 +49,7 @@ for m in sorted(matches, key=lambda x: x['utcDate']):
     ag = score.get('away', '?')
     label = m.get('group') or m.get('stage', '')
     rows.append(
-        f"<tr><td style='padding:6px 12px;font-size:20px;font-weight:bold'>"
+        f"<tr><td style='padding:6px 12px;font-size:16px;font-weight:bold'>"
         f"{home} {hg} — {ag} {away}</td>"
         f"<td style='padding:6px 12px;color:#888'>{label}</td></tr>"
     )
