@@ -12,7 +12,7 @@ POLAND_TZ = timezone(timedelta(hours=2))  # CEST
 # Lista odbiorców — dodaj kolejne adresy email poniżej:
 RECIPIENTS = [
     "mikulski.powiadomienia@gmail.com",
-    # "kolega@gmail.com",
+    "olamikulska10@gmail.com",
     # "inny@przykład.pl",
 ]
 # -------------------------------------------------------
