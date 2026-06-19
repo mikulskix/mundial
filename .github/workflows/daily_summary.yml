@@ -2,7 +2,7 @@ name: Poranne podsumowanie
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # 06:00 CEST (UTC+2)
+    - cron: '15 4 * * *'  # 06:15 CEST (UTC+2)
   workflow_dispatch:
 
 jobs:
